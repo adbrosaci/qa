@@ -34,7 +34,7 @@ For details on how to use this package, check out our [documentation](.docs).
 
 | State  | Branch | Version    | PHP  |Readme |
 |--------|--------|------------|------|-------|
-| dev    | master | 0.1.0     | ^7.4  |-      |
+| dev    | master | 0.1.0      | ^7.4 |-      |
 
 ## Development
 

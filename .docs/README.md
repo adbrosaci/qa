@@ -8,18 +8,48 @@ Install by running `composer require --dev contributte/qa` command.
 
 Take a look at our template repository [contributte/bare](https://github.com/contributte/bare/).
 
+```xml
+<?xml version="1.0"?>
+<ruleset>
+  <!-- App basepath -->
+  <arg name="basepath" value="./"/>
+
+  <!-- Contributte Coding Standard -->
+  <rule ref="./vendor/contributte/qa/ruleset.xml"/>
+
+  <!-- Specific rules -->
+  <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+    <properties>
+      <property name="rootNamespaces" type="array" value="array">
+        <element key="src" value="Contributte\Acme"/>
+        <element key="tests/cases" value="Tests\Cases"/>
+        <element key="tests/fixtures" value="Tests\Fixtures"/>
+      </property>
+    </properties>
+  </rule>
+
+  <!-- Exclude folders -->
+  <exclude-pattern>/tests/tmp</exclude-pattern>
+</ruleset>
+```
+
 ## Usage
 
 - Analyse your codebase with `phpcs` executable e.q. `vendor/bin/phpcs --standard=ruleset.xml app src tests`, as arguments, use your copied config file and directories to be scanned.
 
 - Fix problems effortlessly with `phpcbf` executable e.g. `vendor/bin/phpcs --standard=codesniffer.xml app src tests`.
 
--  Your code now shines! 🌞
+- Your code now shines! 🌞
 
 ## Cheatsheet
 
 For advanced usage of codesniffer you can find all details in their [wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#table-of-contents).
 However, working with codesniffer on daily basis you will often find your code to be unable to conform to the coding standard. That is why we highlighted ways how to cope with it for you.
+
+### Rulesets
+
+- default `<rule ref="./vendor/contributte/qa/ruleset.xml"/>`
+- gamee `<rule ref="./vendor/contributte/qa/ruleset-gamee.xml"/>`
 
 ### Ignoring
 
